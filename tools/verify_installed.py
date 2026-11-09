@@ -18,3 +18,12 @@ for c in atlas_controls:
         r=subprocess.run(cmd+['-'],input=json.dumps(c['input']),text=True,capture_output=True,check=True);report=json.loads(r.stdout);assert report==euflab.atlas.analyze(c['input']);assert euflab.atlas.verify(report)
         v=subprocess.run(cmd+['-','--verify'],input=r.stdout,text=True,capture_output=True,check=True);assert json.loads(v.stdout)==dict(valid=True,schema='euflab-atlas-v1')
 print(f'Installed atlas: {len(atlas_controls)} controls, both entry points, third site-packages origin, outside checkout')
+
+import euflab.cardinality
+assert 'site-packages' in euflab.cardinality.__file__
+card_controls=json.loads(Path(sys.argv[4]).read_text());card_console=str(Path(console).with_name('euflab-cardinality'))
+for c in card_controls:
+    for cmd in [[sys.executable,'-m','euflab.cardinality'],[card_console]]:
+        r=subprocess.run(cmd+['-'],input=json.dumps(c['input']),text=True,capture_output=True,check=True);report=json.loads(r.stdout);assert report==euflab.cardinality.analyze(c['input']);assert euflab.cardinality.verify(report)
+        v=subprocess.run(cmd+['-','--verify'],input=r.stdout,text=True,capture_output=True,check=True);assert json.loads(v.stdout)==dict(valid=True,schema='euflab-cardinality-v1')
+print(f'Installed cardinality: {len(card_controls)} controls, both entry points, fourth site-packages origin, outside checkout')
