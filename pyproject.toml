@@ -3,12 +3,13 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "euflab"
-version = "0.2.0"
+version = "0.3.0"
 description = "Proof-producing bounded ground congruence closure and finite countermodels"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 [project.scripts]
 euflab = "euflab.__main__:main"
 euflab-atlas = "euflab.atlas:cli"
+euflab-cardinality = "euflab.cardinality:cli"
 [tool.setuptools]
 packages = ["euflab"]
