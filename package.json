@@ -1,1 +1,10 @@
-{"name":"euflab-checks","private":true,"scripts":{"test":"node --test --test-concurrency=1 tests/test_engine.mjs tests/test_browser.cjs"},"engines":{"node":">=22"}}
+{
+  "name": "euflab-checks",
+  "private": true,
+  "scripts": {
+    "test": "node --test --test-concurrency=1 tests/test_engine.mjs tests/test_browser.cjs tests/test_atlas_engine.mjs tests/test_atlas_browser.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
