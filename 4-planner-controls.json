@@ -1,0 +1,681 @@
+[
+  {
+    "name": "Cheaper, not arbitrary",
+    "description": "Two equally cheap single deletions. All cost-optimal plans remain visible.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        9,
+        2,
+        2
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Zero-cost supersets",
+    "description": "All seven nonempty deletion sets cost zero. Four are not inclusion-minimal. No count tie-break is hidden.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        0,
+        0,
+        0
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Protect two edges",
+    "description": "A high cost cannot override a protected occurrence. Only the third triangle edge may be deleted.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        1,
+        1,
+        9
+      ],
+      "protected": [
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "name": "Protected cap obstruction",
+    "description": "All three edges are protected. Their cap-only core proves no permitted repair exists.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        1,
+        1,
+        1
+      ],
+      "protected": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "name": "Protected intrinsic obstruction",
+    "description": "The protected equality and disequality contradict at every domain size.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            0,
+            1
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 8,
+      "costs": [
+        0,
+        0
+      ],
+      "protected": [
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "name": "Cost versus edit count",
+    "description": "One edit costs nine; deleting two duplicates costs four. Both coordinates are Pareto options.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            0,
+            1
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        9,
+        2,
+        2
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Same cost, different sizes",
+    "description": "Both minimal repairs cost four. All cost optima include both; the cost/count frontier prefers the one-edit plan.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            0,
+            1
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        4,
+        2,
+        2
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Zero-cost omitted literal can hold",
+    "description": "A nonminimal zero-cost plan may omit a literal that still holds in its displayed model. Omission is not negation.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            0,
+            1
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        0,
+        0,
+        0
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Two causes, one protected side",
+    "description": "Keep the equality, remove its conflicting disequality and break the independent triangle.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "d",
+            "args": []
+          },
+          {
+            "symbol": "e",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            3,
+            4
+          ]
+        ],
+        "disequalities": [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        1,
+        2,
+        9,
+        3,
+        4
+      ],
+      "protected": [
+        0
+      ]
+    }
+  },
+  {
+    "name": "Function-driven three-value need",
+    "description": "A three-cycle needs three values despite just one explicit disequality. Costs choose which link to relax.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": [
+              0
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              1
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              2
+            ]
+          }
+        ],
+        "equalities": [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        7,
+        2,
+        5,
+        9
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "No assertions, no edits",
+    "description": "The empty plan has cost zero and a one-value model.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": []
+      },
+      "limit": 1,
+      "costs": [],
+      "protected": []
+    }
+  },
+  {
+    "name": "Eight independent forced deletions",
+    "description": "Every disequality conflicts with cap one. All eight occurrences must be removed; large exact integer costs are supported.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "d",
+            "args": []
+          },
+          {
+            "symbol": "e",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": []
+          },
+          {
+            "symbol": "g",
+            "args": []
+          },
+          {
+            "symbol": "h",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 1,
+      "costs": [
+        0,
+        1,
+        2,
+        3,
+        1000000,
+        0,
+        4,
+        8
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Already consistent with free deletion",
+    "description": "The empty plan and a zero-cost nonminimal deletion tie by cost. Only the empty plan is Pareto efficient.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": [
+              0
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              1
+            ]
+          }
+        ],
+        "equalities": [
+          [
+            2,
+            3
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2,
+      "costs": [
+        0,
+        5
+      ],
+      "protected": []
+    }
+  },
+  {
+    "name": "Duplicate hard/soft occurrence",
+    "description": "One protected disequality alone violates cap one. Duplicate syntax keeps distinct occurrence IDs.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 1,
+      "costs": [
+        0,
+        8
+      ],
+      "protected": [
+        0
+      ]
+    }
+  }
+]
