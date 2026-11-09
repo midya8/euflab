@@ -49,3 +49,11 @@ python -m euflab.atlas atlas.json --verify
 ```
 
 Independent restricted-growth, explicit-block and subset-cover enumerators. Preserves the original nine native tests; adds seven native and three Node/Chrome tests. All 4,317 admitted control patterns, 248 pair queries and 362 pair-witness actions are exercised at each of three widths. Counts are term-equality patterns, not full interpretations. Every finite domain size at least the minimum is possible, using extra unnamed elements; classifications impose no domain-size cap. Exponential search, at most eight terms.
+
+## Bounded-domain contradiction debugger
+
+[Live domain-cap debugger](https://midya8.github.io/euflab/cardinality.html) | [Exact diagnosis contract](CARDINALITY.md)
+
+Fix a finite-domain upper bound and inspect **every minimal conflicting assertion subset** and **every minimal deletion repair**. Distinguish intrinsic contradictions from cap-only conflicts, audit all assertion subsets, and inspect total models for whole-input repairs or individual core relaxations. Duplicate occurrences stay separate; minimal does not mean minimum-size, and fixing one core need not fix the full input. A unary three-cycle control shows why coloring only explicit difference edges is insufficient.
+
+`python -m euflab.cardinality request.json --output diagnosis.json` and `python -m euflab.cardinality diagnosis.json --verify`; installed console: `euflab-cardinality`. Thirteen controls, independent full-subset/duality references, 269 complete cross-engine reports, and actual mobile/desktop Chrome interactions. Eight terms, eight assertion occurrences, one sort, conjunctions only. No paid API or scalability claim. Original proof and atlas tools are retained.
