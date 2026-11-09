@@ -1,0 +1,566 @@
+[
+  {
+    "name": "Triangle, two values",
+    "description": "Every pair differs. Three pairwise differences cannot fit in two values; deleting any one repairs it.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2
+    }
+  },
+  {
+    "name": "Triangle, three values",
+    "description": "Raising only the cap restores the unchanged conjunction.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 3
+    }
+  },
+  {
+    "name": "Odd cycle",
+    "description": "Five differences form one two-value conflict with five minimal repairs.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "d",
+            "args": []
+          },
+          {
+            "symbol": "e",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      },
+      "limit": 2
+    }
+  },
+  {
+    "name": "Intrinsic contradiction",
+    "description": "Equal and different cannot both hold at any cap. Each occurrence is separately removable.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            0,
+            1
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 8
+    }
+  },
+  {
+    "name": "Mixed causes",
+    "description": "One intrinsic core and a separate cap-only triangle coexist. Repairing only one cause is insufficient.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "d",
+            "args": []
+          },
+          {
+            "symbol": "e",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            3,
+            4
+          ]
+        ],
+        "disequalities": [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "limit": 2
+    }
+  },
+  {
+    "name": "Duplicate occurrences",
+    "description": "Duplicate assertions keep distinct IDs. Removing one copy is not enough.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 1
+    }
+  },
+  {
+    "name": "Unary backward difference",
+    "description": "A differing function result forces differing arguments, even with no explicit argument difference.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": [
+              0
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              1
+            ]
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "limit": 1
+    }
+  },
+  {
+    "name": "Unary three-cycle",
+    "description": "A three-cycle plus a!=b forces three values through congruence. Its difference graph alone has only one edge.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": [
+              0
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              1
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              2
+            ]
+          }
+        ],
+        "equalities": [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2
+    }
+  },
+  {
+    "name": "Two independent edges",
+    "description": "At cap one, either edge alone conflicts. Both must be removed to repair the whole input.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "d",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "limit": 1
+    }
+  },
+  {
+    "name": "No assertions",
+    "description": "The signature alone has a one-value total model. The unique minimal repair removes nothing.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": []
+      },
+      "limit": 1
+    }
+  },
+  {
+    "name": "Eight names, eight occurrences",
+    "description": "Boundary input, with duplicate edges and eight term IDs.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "c",
+            "args": []
+          },
+          {
+            "symbol": "d",
+            "args": []
+          },
+          {
+            "symbol": "e",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": []
+          },
+          {
+            "symbol": "g",
+            "args": []
+          },
+          {
+            "symbol": "h",
+            "args": []
+          }
+        ],
+        "equalities": [],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 1
+    }
+  },
+  {
+    "name": "Non-injective function",
+    "description": "Equal results and different arguments fit in two values; there is no inverse-function axiom.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          },
+          {
+            "symbol": "f",
+            "args": [
+              0
+            ]
+          },
+          {
+            "symbol": "f",
+            "args": [
+              1
+            ]
+          }
+        ],
+        "equalities": [
+          [
+            2,
+            3
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2
+    }
+  },
+  {
+    "name": "Minimal is not minimum",
+    "description": "One deletion of the equality or two deletions of duplicate differences both give minimal repairs. Only one has minimum size.",
+    "input": {
+      "input": {
+        "terms": [
+          {
+            "symbol": "a",
+            "args": []
+          },
+          {
+            "symbol": "b",
+            "args": []
+          }
+        ],
+        "equalities": [
+          [
+            0,
+            1
+          ]
+        ],
+        "disequalities": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "limit": 2
+    }
+  }
+]
