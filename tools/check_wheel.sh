@@ -7,4 +7,4 @@ python -m pip wheel --no-deps --wheel-dir "$tmp/wheels" .
 python -m venv "$tmp/env"
 "$tmp/env/bin/pip" install --no-deps "$tmp"/wheels/*.whl
 cd "$tmp"
-"$tmp/env/bin/python" "$root/tools/verify_installed.py" "$root/docs/controls.json" "$tmp/env/bin/euflab" "$root/docs/atlas-controls.json" "$root/docs/cardinality-controls.json" "$root/docs/planner-controls.json"
+"$tmp/env/bin/python" "$root/tools/verify_installed.py" "$root/docs/controls.json" "$tmp/env/bin/euflab" "$root/docs/atlas-controls.json" "$root/docs/cardinality-controls.json" "$root/docs/planner-controls.json" "$root/docs/sensitivity-controls.json"

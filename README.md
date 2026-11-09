@@ -65,3 +65,11 @@ Fix a finite-domain upper bound and inspect **every minimal conflicting assertio
 Protect occurrence IDs and set explicit nonnegative deletion costs. The fourth inspector returns every permitted deletion mask, every cost-only optimum, a separate cost/count Pareto frontier, protected-core obstructions and total retained-input models. Zero-cost nonminimal ties are preserved; deleting does not mean negating. Costs never override protected assertions. Nothing is actually edited. Eight terms/eight occurrences, not a general MaxSMT optimizer.
 
 `python -m euflab.planner request.json --output plan.json` and `python -m euflab.planner plan.json --verify`; installed `euflab-planner`. Fourteen synthetic controls, independent labeled-domain references, complete native/browser comparisons and full installed/UI reproduction. Earlier inspectors and tests remain intact.
+
+## Exact repair-cost sensitivity
+
+[Live sensitivity inspector](https://midya8.github.io/euflab/sensitivity.html) · [Derivation, contract and seven-source ledger](SENSITIVITY.md)
+
+When does a cheapest repair change? Freeze every other cost, protected ID, assertion and domain cap. The fifth inspector certifies every integer interval in 0..1,000,000, every breakpoint tie, all optimal mask families and the maximal interval preserving the full nominal optimum set. Probe adjusted cost/regret and replay a total model without hiding zero-cost nonminimal optima. Exact two-slope finite planning, not a simultaneous robustness or general parametric-optimization claim.
+
+`python -m euflab.sensitivity request.json --output sensitivity.json`; `python -m euflab.sensitivity sensitivity.json --verify`. Installed `euflab-sensitivity`. All four earlier schemas and inspectors remain intact.

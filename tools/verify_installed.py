@@ -36,3 +36,12 @@ for c in planner_controls:
         r=subprocess.run(cmd+['-'],input=json.dumps(c['input']),text=True,capture_output=True,check=True);report=json.loads(r.stdout);assert report==euflab.planner.analyze(c['input']);assert euflab.planner.verify(report)
         v=subprocess.run(cmd+['-','--verify'],input=r.stdout,text=True,capture_output=True,check=True);assert json.loads(v.stdout)==dict(valid=True,schema='euflab-planner-v1')
 print(f'Installed planner: {len(planner_controls)} controls, both entry points, fifth site-packages origin, outside checkout')
+
+import euflab.sensitivity
+assert 'site-packages' in euflab.sensitivity.__file__
+sensitivity_controls=json.loads(Path(sys.argv[6]).read_text());sensitivity_console=str(Path(console).with_name('euflab-sensitivity'))
+for c in sensitivity_controls:
+    for cmd in [[sys.executable,'-m','euflab.sensitivity'],[sensitivity_console]]:
+        r=subprocess.run(cmd+['-'],input=json.dumps(c['input']),text=True,capture_output=True,check=True);report=json.loads(r.stdout);assert report==euflab.sensitivity.analyze(c['input']);assert euflab.sensitivity.verify(report)
+        v=subprocess.run(cmd+['-','--verify'],input=r.stdout,text=True,capture_output=True,check=True);assert json.loads(v.stdout)==dict(valid=True,schema='euflab-sensitivity-v1')
+print(f'Installed sensitivity: {len(sensitivity_controls)} controls, both entry points, sixth site-packages origin, outside checkout')

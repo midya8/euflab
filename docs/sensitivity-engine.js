@@ -1,0 +1,8 @@
+import {analyze as plan} from './planner-engine.js';
+export function analyze(raw){const planning=plan(raw),cost_max=1000000,profiles=planning.costs.map((current,j)=>{
+ const groups=[0,1].map(slope=>{const ps=planning.feasible.filter(p=>Number(p.removed.includes(j))===slope),base=ps.length?Math.min(...ps.map(p=>p.cost-slope*current)):null;return {base,masks:ps.filter(p=>p.cost-slope*current===base).map(p=>p.mask)};}),[keep,del]=groups,crossing=keep.base!==null&&del.base!==null?keep.base-del.base:null;
+ // Sweep every affine-line intersection; merge adjacent cells with identical optimum sets.
+ const lines=planning.feasible.map(p=>({mask:p.mask,slope:Number(p.removed.includes(j)),base:p.removed.filter(i=>i!==j).reduce((sum,i)=>sum+planning.costs[i],0)})),cuts=new Set([0,cost_max+1]);for(const a of lines)for(const b of lines)if(a.slope===0&&b.slope===1)for(const x of [a.base-b.base,a.base-b.base+1])if(x>0&&x<cost_max+1)cuts.add(x);
+ const points=[...cuts].sort((a,b)=>a-b),segments=[];for(let i=0;i<points.length-1;i++){const lo=points[i],hi=points[i+1]-1,values=lines.map(p=>({...p,value:p.base+p.slope*lo})),minimum=values.length?Math.min(...values.map(p=>p.value)):null,winning=values.filter(p=>p.value===minimum),optimal_masks=winning.map(p=>p.mask),slopes=new Set(winning.map(p=>p.slope)),kind=!winning.length?'blocked':slopes.size===2?'tie':slopes.has(1)?'delete':'keep',last=segments.at(-1);if(last&&JSON.stringify(last.optimal_masks)===JSON.stringify(optimal_masks))last.hi=hi;else segments.push({lo,hi,kind,optimal_masks});}
+ return {assertion:j,keep,delete:del,crossing,segments,current_segment:segments.findIndex(s=>s.lo<=current&&current<=s.hi)};
+ });return {schema:'euflab-sensitivity-v1',planning,cost_max,profiles};}
