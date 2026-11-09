@@ -27,3 +27,12 @@ for c in card_controls:
         r=subprocess.run(cmd+['-'],input=json.dumps(c['input']),text=True,capture_output=True,check=True);report=json.loads(r.stdout);assert report==euflab.cardinality.analyze(c['input']);assert euflab.cardinality.verify(report)
         v=subprocess.run(cmd+['-','--verify'],input=r.stdout,text=True,capture_output=True,check=True);assert json.loads(v.stdout)==dict(valid=True,schema='euflab-cardinality-v1')
 print(f'Installed cardinality: {len(card_controls)} controls, both entry points, fourth site-packages origin, outside checkout')
+
+import euflab.planner
+assert 'site-packages' in euflab.planner.__file__
+planner_controls=json.loads(Path(sys.argv[5]).read_text());planner_console=str(Path(console).with_name('euflab-planner'))
+for c in planner_controls:
+    for cmd in [[sys.executable,'-m','euflab.planner'],[planner_console]]:
+        r=subprocess.run(cmd+['-'],input=json.dumps(c['input']),text=True,capture_output=True,check=True);report=json.loads(r.stdout);assert report==euflab.planner.analyze(c['input']);assert euflab.planner.verify(report)
+        v=subprocess.run(cmd+['-','--verify'],input=r.stdout,text=True,capture_output=True,check=True);assert json.loads(v.stdout)==dict(valid=True,schema='euflab-planner-v1')
+print(f'Installed planner: {len(planner_controls)} controls, both entry points, fifth site-packages origin, outside checkout')

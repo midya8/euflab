@@ -57,3 +57,11 @@ Independent restricted-growth, explicit-block and subset-cover enumerators. Pres
 Fix a finite-domain upper bound and inspect **every minimal conflicting assertion subset** and **every minimal deletion repair**. Distinguish intrinsic contradictions from cap-only conflicts, audit all assertion subsets, and inspect total models for whole-input repairs or individual core relaxations. Duplicate occurrences stay separate; minimal does not mean minimum-size, and fixing one core need not fix the full input. A unary three-cycle control shows why coloring only explicit difference edges is insufficient.
 
 `python -m euflab.cardinality request.json --output diagnosis.json` and `python -m euflab.cardinality diagnosis.json --verify`; installed console: `euflab-cardinality`. Thirteen controls, independent full-subset/duality references, 269 complete cross-engine reports, and actual mobile/desktop Chrome interactions. Eight terms, eight assertion occurrences, one sort, conjunctions only. No paid API or scalability claim. Original proof and atlas tools are retained.
+
+## Costed repair planner
+
+[Live planner](https://midya8.github.io/euflab/planner.html) · [Exact semantics and six-source ledger](PLANNER.md)
+
+Protect occurrence IDs and set explicit nonnegative deletion costs. The fourth inspector returns every permitted deletion mask, every cost-only optimum, a separate cost/count Pareto frontier, protected-core obstructions and total retained-input models. Zero-cost nonminimal ties are preserved; deleting does not mean negating. Costs never override protected assertions. Nothing is actually edited. Eight terms/eight occurrences, not a general MaxSMT optimizer.
+
+`python -m euflab.planner request.json --output plan.json` and `python -m euflab.planner plan.json --verify`; installed `euflab-planner`. Fourteen synthetic controls, independent labeled-domain references, complete native/browser comparisons and full installed/UI reproduction. Earlier inspectors and tests remain intact.
