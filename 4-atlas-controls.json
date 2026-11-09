@@ -1,0 +1,504 @@
+[
+  {
+    "name": "Names can coincide",
+    "description": "Three different constant names admit five equality patterns, not five full interpretations.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "Triangle needs three values",
+    "description": "Three pairwise disequalities force a three-element minimum domain.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "query": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "Odd cycle needs a third value",
+    "description": "A five-cycle of disequalities cannot use two values. Other constant pairs remain flexible without a fixed domain cap.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        },
+        {
+          "symbol": "d",
+          "args": []
+        },
+        {
+          "symbol": "e",
+          "args": []
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "Path can reuse values",
+    "description": "A path admits a two-element minimum, even though the least congruence has four classes.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        },
+        {
+          "symbol": "d",
+          "args": []
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "Unary difference propagates backward",
+    "description": "f(a) != f(b) forces a != b. This is a forced disequality, unlike mere separation in the largest quotient.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "query": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "Binary difference is a disjunction",
+    "description": "f(a,b) != f(c,d) requires a != c OR b != d. Neither individual difference is forced.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        },
+        {
+          "symbol": "d",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            2,
+            3
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "Equal outputs, different inputs",
+    "description": "f(a) = f(b) does not force a = b; an explicit a != b is compatible with merged outputs.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          2,
+          3
+        ]
+      ],
+      "disequalities": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "Cyclic value can collapse",
+    "description": "a = f(a) allows one value. The further term f(f(a)) is forced equal by congruence.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          0,
+          1
+        ]
+      ],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "Duplicate syntax must agree",
+    "description": "Repeated a and f(a) records cannot be given different values merely because their IDs differ.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      2,
+      3
+    ]
+  },
+  {
+    "name": "No models, no witness",
+    "description": "a = b together with f(a) != f(b) has no admissible pattern. The atlas marks inconsistent rather than presenting a nonexistent countermodel.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          0,
+          1
+        ]
+      ],
+      "disequalities": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "query": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "Eight names, 4140 patterns",
+    "description": "The complete eight-term boundary. Counts are unlabeled term-equality patterns, not all possible function interpretations.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        },
+        {
+          "symbol": "d",
+          "args": []
+        },
+        {
+          "symbol": "e",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": []
+        },
+        {
+          "symbol": "g",
+          "args": []
+        },
+        {
+          "symbol": "h",
+          "args": []
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      7
+    ]
+  },
+  {
+    "name": "Two-value swap",
+    "description": "f(a) = b and f(b) = a with a != b yields a two-element swapping interpretation.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "disequalities": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "query": [
+      0,
+      3
+    ]
+  }
+]
