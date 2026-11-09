@@ -2,7 +2,7 @@
   "name": "euflab-checks",
   "private": true,
   "scripts": {
-    "test": "node --test --test-concurrency=1 tests/test_engine.mjs tests/test_browser.cjs tests/test_atlas_engine.mjs tests/test_atlas_browser.cjs tests/test_cardinality_engine.mjs tests/test_cardinality_browser.cjs"
+    "test": "node --test --test-concurrency=1 tests/test_engine.mjs tests/test_browser.cjs tests/test_atlas_engine.mjs tests/test_atlas_browser.cjs tests/test_cardinality_engine.mjs tests/test_cardinality_browser.cjs tests/test_planner_engine.mjs tests/test_planner_browser.cjs"
   },
   "engines": {
     "node": ">=22"
