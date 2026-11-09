@@ -1,0 +1,31 @@
+{
+  "terms": [
+    {
+      "symbol": "a",
+      "args": []
+    },
+    {
+      "symbol": "b",
+      "args": []
+    },
+    {
+      "symbol": "f",
+      "args": [
+        0
+      ]
+    },
+    {
+      "symbol": "f",
+      "args": [
+        1
+      ]
+    }
+  ],
+  "equalities": [
+    [
+      2,
+      3
+    ]
+  ],
+  "disequalities": []
+}

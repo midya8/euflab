@@ -1,0 +1,509 @@
+[
+  {
+    "name": "Congruence cascade",
+    "description": "One input equality propagates through unary and binary functions. The final disequality contradicts a proof, not a string match.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            2,
+            0
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            3,
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          0,
+          1
+        ]
+      ],
+      "disequalities": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    "query": [
+      4,
+      5
+    ]
+  },
+  {
+    "name": "No injectivity",
+    "description": "Equal outputs do not force equal inputs. The quotient model separates a and b while f maps both to one value.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          2,
+          3
+        ]
+      ],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "Cyclic values are legal",
+    "description": "a = f(a) is satisfiable in EUF. These are ground terms, not an occurs-check or a free-constructor theory.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          0,
+          1
+        ]
+      ],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "No distinct-name axiom",
+    "description": "Different symbols need not denote different values. This model chooses separate classes; it does not prove an inequality in every model.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            0
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "Reverse and chain",
+    "description": "The proof must account for orientation and transitivity, not only input edge membership.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "c",
+          "args": []
+        }
+      ],
+      "equalities": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      2
+    ]
+  },
+  {
+    "name": "Duplicate syntax",
+    "description": "Repeated constant and application records are the same ground terms even without any asserted equality.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      2,
+      3
+    ]
+  },
+  {
+    "name": "Reflexive contradiction",
+    "description": "A disequality of a term with itself is inconsistent without any positive assumptions.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "query": [
+      0,
+      0
+    ]
+  },
+  {
+    "name": "Eight-term boundary",
+    "description": "Eight nodes, shared subterms and two-argument functions. Unspecified function tuples use the explicit default, making a total finite interpretation.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1,
+            0
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            2
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            3
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            4,
+            5
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            6
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      0,
+      7
+    ]
+  },
+  {
+    "name": "Redundant assumptions",
+    "description": "Duplicate, reversed and reflexive equalities do not change the least congruence. Proofs need not be shortest or use every assumption.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "disequalities": []
+    },
+    "query": [
+      2,
+      3
+    ]
+  },
+  {
+    "name": "Every violated disequality",
+    "description": "Both violated assertions are reported. Inconsistent inputs entail every formula classically, so non-closure pairs are not countermodels.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            2,
+            0
+          ]
+        },
+        {
+          "symbol": "g",
+          "args": [
+            3,
+            1
+          ]
+        }
+      ],
+      "equalities": [
+        [
+          0,
+          1
+        ]
+      ],
+      "disequalities": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    "query": [
+      0,
+      4
+    ]
+  },
+  {
+    "name": "No commutativity",
+    "description": "f(a,b) and f(b,a) need not agree. Function argument positions are ordered.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0,
+            1
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1,
+            0
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": []
+    },
+    "query": [
+      2,
+      3
+    ]
+  },
+  {
+    "name": "Consistent disequality",
+    "description": "The complete finite interpretation satisfies the disequality and all positive equalities. Distinct classes separate every non-entailed equality simultaneously.",
+    "input": {
+      "terms": [
+        {
+          "symbol": "a",
+          "args": []
+        },
+        {
+          "symbol": "b",
+          "args": []
+        },
+        {
+          "symbol": "f",
+          "args": [
+            0
+          ]
+        },
+        {
+          "symbol": "f",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "equalities": [],
+      "disequalities": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "query": [
+      0,
+      1
+    ]
+  }
+]

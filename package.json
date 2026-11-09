@@ -1,0 +1,1 @@
+{"name":"euflab-checks","private":true,"scripts":{"test":"node --test --test-concurrency=1 tests/test_engine.mjs tests/test_browser.cjs"},"engines":{"node":">=22"}}
