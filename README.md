@@ -1,6 +1,6 @@
 # EUFLab
 
-**Same output. Not the same input.** Proof-producing ground equality, congruence-derived contradictions and total finite countermodels.
+Ground equality proofs, congruence-derived contradictions and total finite countermodels.
 
 [Live inspector](https://midya8.github.io/euflab/) · [Exact contract and six-source ledger](METHOD.md)
 
@@ -8,6 +8,20 @@
 - Separate JavaScript relation engine. Every ordered equal pair has a proof DAG. Every non-entailed equality in a consistent input has a separating finite interpretation.
 - Explicit controls for non-injectivity, cyclic values, duplicate syntax, ordered arguments, redundant assumptions, multiple disequality conflicts and inconsistency/vacuity.
 - No dependencies at runtime. No model API, private data, account execution or new-algorithm claim.
+
+## Choose an inspector
+
+| Question | Page / native module | Result |
+| --- | --- | --- |
+| Which equalities follow from the assertions? | `index.html` / `euflab` | Proof DAGs, contradictions and separating models |
+| Which finite equality patterns are compatible? | `atlas.html` / `euflab.atlas` | All term partitions, minimum domain size and pair classifications |
+| Which assertions conflict under a domain cap? | `cardinality.html` / `euflab.cardinality` | Every minimal conflict and deletion repair |
+| Which permitted repairs have least cost? | `planner.html` / `euflab.planner` | Cost optima, cost/count frontier and protected-core obstructions |
+| When does one changed deletion cost alter the optima? | `sensitivity.html` / `euflab.sensitivity` | Exact integer intervals, ties and regret |
+
+All pages are under `docs/`. Deletion repairs are hypothetical: no input is
+edited. Minimal conflicts and repairs need not have minimum size, and one-cost
+sensitivity is not simultaneous-input robustness.
 
 ## Run
 
@@ -32,7 +46,7 @@ This asserts f(a)=f(b). It does not imply a=b. The displayed total model assigns
 
 ## Evidence and limits
 
-Nine native tests include partition-enumeration references, 27 exhaustive constant conjunctions, 64 four-term assertion subsets plus all added disequality probes, 80 seeded DAGs, proof tampering and atomic CLI rejection. Two Node tests compare 156 semantic reports and native-check every browser proof DAG. Chrome tests all 251 ordered queries and every displayed proof/model row at 320/390/1280. Wheel reproduction runs 12 controls through both entry points outside checkout.
+The original nine native tests include partition-enumeration references, 27 exhaustive constant conjunctions, 64 four-term assertion subsets plus all added disequality probes, 80 seeded DAGs, proof tampering and atomic CLI rejection. Two Node tests compare 156 semantic reports and native-check every browser proof DAG. Chrome tests all 251 ordered queries and every displayed proof/model row at 320/390/1280. Wheel reproduction runs 12 controls through both entry points outside checkout.
 
 At most eight terms, arity at most two, eight equalities and eight disequalities. One uninterpreted sort; ground conjunctions only. Proofs are valid explanations, not shortest proofs or minimal cores. A separating model does not prove a universal inequality. Inconsistent inputs have no countermodel and entail everything classically, even if a pair is absent from positive closure. Classical congruence closure, not new theory, a scalable solver or a real-code verifier. See [METHOD.md](METHOD.md).
 
